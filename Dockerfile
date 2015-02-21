@@ -45,6 +45,13 @@ ADD vimrc $HOME/.vimrc
 RUN git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 RUN yes | vim +PluginInstall +qall
 
+# Setup git templates
+#
+# # #
+RUN mkdir -p $HOME/.git_template/hooks
+ADD commit-msg $HOME/.git_template/hooks/commit_msg
+RUN git config --global init.templatedir $HOME/.git_template
+
 RUN chown -R dev: $HOME
 USER dev
 CMD zsh
