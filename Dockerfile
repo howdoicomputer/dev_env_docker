@@ -32,7 +32,7 @@ RUN useradd dev
 #
 # # #
 RUN curl -L http://install.ohmyz.sh | bash
-RUN wget --no-check-certificate https://raw.githubusercontent.com/howdoicomputer/dotfiles/4fa36534f0d8508415165f3a6a4354c351f06466/zshrc -O $HOME/.zshrc
+ADD zshrc $HOME/.zshrc
 RUN git clone https://github.com/zsh-users/antigen.git $HOME/.antigen
 RUN /usr/bin/zsh $HOME/.zshrc
 RUN chsh dev -s /usr/bin/zsh
@@ -41,10 +41,10 @@ RUN chsh dev -s /usr/bin/zsh
 #
 # # #
 RUN mkdir -p $HOME/.vim/.tmp
-RUN wget --no-check-certificate https://raw.githubusercontent.com/howdoicomputer/dotfiles/0716e8755fbfb364959336a817c52a357dd924b0/vimrc -O $HOME/.vimrc
+ADD vimrc $HOME/.vimrc
 RUN git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 RUN yes | vim +PluginInstall +qall
 
-RUN chown -R dev: /home/dev
+RUN chown -R dev: $HOME
 USER dev
 CMD zsh
