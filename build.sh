@@ -3,4 +3,4 @@
 #
 
 cp -R ~/.ssh .
-docker build -t dev .
+docker build -t dev_env .
