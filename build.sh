@@ -2,5 +2,4 @@
 #
 #
 
-cp -R ~/.ssh .
-docker build -t dev_env .
+docker build -t devenv .
