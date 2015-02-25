@@ -9,4 +9,4 @@ The Dockerfile in this project will pull down my dotfiles and setup a dev user. 
 
 ### Notes
 
-This does copy your ```~.ssh``` directory into the container so that you can use git and such.
+The ```run.sh``` script mounts your ssh directory as a volume so you can use your private key.
