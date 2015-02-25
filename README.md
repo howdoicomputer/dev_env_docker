@@ -1,4 +1,4 @@
-# dev_env_docker
+# docker-devenv
 A base setup for establishing disposable dev environment.
 
 ### Introduction
